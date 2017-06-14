@@ -1,0 +1,14 @@
+<IfModule mod_rewrite.c>
+RewriteEngine on
+RewriteRule p/([0-9]+)$ detail.php?id=$1
+RewriteRule tags.html$ tags.php
+RewriteRule cat([0-9]*)$ list.php?cat=$1
+RewriteRule cat([0-9]*)/([0-9]*)$ list.php?cat=$1&page=$2
+RewriteRule product([0-9]*)/id([0-9]*)$ product_detail.php?cat=$1&id=$2
+RewriteRule product([0-9]*)$ product_list.php?cat=$1
+RewriteRule product([0-9]*)/([0-9]*)$ product_list.php?cat=$1&page=$2
+RewriteRule tag([0-9]*).html$ tagm.php?tag=$1
+RewriteRule tag([0-9]*)/([0-9]*).html$ tagm.php?tag=$1&page=$2
+RewriteRule ([A-Za-z0-9]*).html$ page.php?id=$1
+RewriteRule guestbook$ guestbook.php
+</IfModule>
