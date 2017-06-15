@@ -33,10 +33,10 @@ $db =  new db();
 $where['where']="id=$id";
 if($db->update("article", $_REQUEST, $where)) //成功返回mysql_insert_id,最新插入的id
 {
-    success("article_list.php",1,"修改成功");
+    success_jump("修改成功","article_list.php");
 }
 else
 {
-    error($_SERVER['HTTP_REFERER'],3,"修改失败");
+    error_jump("修改失败","article_list.php");
 }
 ?>

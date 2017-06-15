@@ -10,13 +10,8 @@ require_once 'db.inc.php';
 require_once 'common.inc.php'; //引入配置文件
 
 //定义常量
-define('CMS_WEBSITE', 'http://www.flcms.com');   // 站点根网址
-define('CMS_WEBNAME', 'flcms');                  // 网站名称
-define('CMS_ADMIN', CMS_WEBSITE.'/fladmin/');    // 后台模块，首字母最好大写
-define('CMS_CSS', CMS_WEBSITE.'/css/');          // css目录
-define('CMS_JS', CMS_WEBSITE.'/js/');            // js目录
-define('CMS_UPLOADS', CMS_WEBSITE.'.uploads/');  // uploads目录
-define('CMS_PLUS', CMS_WEBSITE.'/other/');       // 插件目录
+define('CMS_ADMIN', CMS_BASEHOST.'/fladmin/');    // 后台模块，首字母最好大写
+define('CMS_PLUS', CMS_BASEHOST.'/other/');       // 插件目录
 define('CMS_VERSION', '1.1.0');                  // 插件目录
 
 //系统相关

@@ -8,7 +8,7 @@ if(!isset($_SESSION['admin_user_info']))
 ?>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="/css/bootstrap.min.css"><link rel="stylesheet" href="/css/admin.css">
-<script src="/js/jquery.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/ad.js"></script></head><body>
+<script src="/js/jquery.min.js"></script><script src="/js/bootstrap.min.js"></script><script src="/js/admin.js"></script></head><body>
 
 <div class="blog-masthead clearfix"><nav class="blog-nav">
 <a class="blog-nav-item active" href="<?php echo CMS_ADMIN; ?>"><span class="glyphicon glyphicon-star"></span> <strong>后台管理中心</strong> <span class="glyphicon glyphicon-star-empty"></span></a>

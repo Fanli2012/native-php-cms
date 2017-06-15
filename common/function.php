@@ -46,7 +46,7 @@ function url(array $param)
     else if($param['type'] == 'page')
     {
         //单页面
-        $url .= '/'.$param['pagename'];
+        $url .= '/sgpage/'.$param['pagename'].'.html';
     }
     else if($param['type'] == 'productlist')
     {
@@ -106,6 +106,7 @@ function arclist(array $param)
 	if(!empty($param['image'])){$map['litpic']=array('NEQ','');}
 	if(!empty($param['limit'])){$limit=$param['limit'];}else{if(!empty($param['row'])){$limit="0,".$param['row'];}else{$limit='0,'.cms_pagesize;}}
 	if(!empty($param['orderby'])){$orderby=$param['orderby'];}else{$orderby='id desc';}
+	if(!empty($param['field'])){$map['field']=$param['field'];}
 	
 	if(!empty($param['sql']))
 	{
@@ -131,7 +132,7 @@ function tagslist(array $param)
 	if(!empty($param['limit'])){$limit=$param['limit'];}else{if(!empty($param['row'])){$limit=$param['row'];}}
 	if(!empty($param['orderby'])){$orderby=$param['orderby'];}else{$orderby='id desc';}
 	
-	$Taglist = M("Tagindex")->field('content',true)->where($map)->order($orderby)->limit($limit)->select();
+	$Taglist = M("tagindex")->field('content',true)->where($map)->order($orderby)->limit($limit)->select();
 	
 	return $Taglist;
 }
@@ -676,9 +677,10 @@ function get_cat_path($cat)
 {
     global $temp;
     
-    $row = M("Arctype")->field('typename,reid,id')->where("id=$cat")->find();
+	$db = new db();
+	$row = $db->find("arctype",['id'=>$cat],'typename,reid,id');
     
-    $temp = '<a href="'.cms_basehost.'/cat'.$row["id"].'">'.$row["typename"]."</a> > ".$temp;
+    $temp = '<a href="'.url(array("catid"=>$row["id"],"type"=>'list')).'">'.$row["typename"]."</a> > ".$temp;
     
     if($row["reid"]<>0)
     {
@@ -885,7 +887,7 @@ function error_jump($msg='', $url='', $time=3)
 	
 	if(!headers_sent())
     {
-        header("Location:".CMS_ADMIN."?error=$msg&url=$url&time=$time");
+        header("Location:".CMS_ADMIN."jump.php?error=$msg&url=$url&time=$time");
         exit();
     }
     else
@@ -912,7 +914,7 @@ function success_jump($msg='', $url='', $time=1)
 	
 	if(!headers_sent())
     {
-		header("Location:".CMS_ADMIN."?message=$msg&url=$url&time=$time");
+		header("Location:".CMS_ADMIN."jump.php?message=$msg&url=$url&time=$time");
         exit();
     }
     else

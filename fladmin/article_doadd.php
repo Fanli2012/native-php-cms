@@ -31,10 +31,10 @@ $_REQUEST['body']=$content;
 $db =  new db();
 if($db->insert("article", $_REQUEST)) //成功返回mysql_insert_id,最新插入的id
 {
-    redirect("article_list.php",1,"添加成功");
+    success_jump("添加成功","article_list.php");
 }
 else
 {
-    redirect("article_list.php",3,"添加失败");
+    error_jump("添加失败","article_list.php");
 }
 ?>

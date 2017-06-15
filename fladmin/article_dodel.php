@@ -2,15 +2,15 @@
 header("Content-type: text/html; charset=utf-8");
 require '../common/config.php';
 
-if(!empty($_REQUEST["id"])){$id = $_REQUEST["id"];}else{redirect("article_list.php",3,"删除失败！请重新提交");}
+if(!empty($_REQUEST["id"])){$id = $_REQUEST["id"];}else{error_jump("删除失败！请重新提交","article_list.php");}
 $db =  new db();
 $where['where'] = "id in ($id)";
 if($db->delete("article", $where))
 {
-    redirect("article_list.php", 1, "$id ,删除成功");
+    success_jump("删除成功","article_list.php");
 }
 else
 {
-    redirect("article_list.php", 3, "$id ,删除失败！请重新提交");
+    error_jump("删除失败！请重新提交","article_list.php");
 }
 ?>

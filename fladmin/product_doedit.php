@@ -30,7 +30,7 @@ $_REQUEST['body']=$content;
 
 $db =  new db();
 $where['where']="id=$id";
-if($db->update("product", $_REQUEST, $where)) //成功返回mysql_insert_id,最新插入的id
+if($db->update("product", array_filter($_REQUEST), $where)) //成功返回mysql_insert_id,最新插入的id
 {
     redirect("product_list.php",1,"修改成功");
 }

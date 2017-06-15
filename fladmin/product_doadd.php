@@ -28,7 +28,7 @@ else
 $_REQUEST['body']=$content;
 
 $db =  new db();
-if($db->insert("product", $_REQUEST)) //成功返回mysql_insert_id,最新插入的id
+if($db->insert("product", array_filter($_REQUEST))) //成功返回mysql_insert_id,最新插入的id
 {
     redirect("product_list.php",1,"添加成功");
 }
