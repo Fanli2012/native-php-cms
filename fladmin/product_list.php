@@ -20,7 +20,7 @@ if(isset($_REQUEST["id"]))
     $where['where']['typeid'] = $_REQUEST["id"];
 }
 
-$where['where']['status'] = 0; //审核过的商品
+//$where['where']['status'] = 0; //审核过的商品
 if(isset($_REQUEST["status"]))
 {
     $where['where']['status'] = $_REQUEST["status"]; //未审核过的商品
@@ -44,7 +44,7 @@ if(!empty($posts))
 <div class="row">
 <!-- 左边开始 --><div class="col-sm-3 col-md-2 sidebar"><?php include 'leftmenu.php'; ?></div><!-- 左边结束 -->
 
-<!-- 右边开始 --><div class="col-sm-9 col-md-10 rightbox"><div id="mainbox"><h5 class="sub-header"><a href="producttype_list.php">商品栏目管理</a> > <a href="product_list.php">上架商品列表</a> | <a href="product_list.php?status=1">下架商品列表</a> [ <a href="product_add.php<?php if(!empty($_GET["id"])){echo '?catid='.$_GET["id"];}?>">发布商品</a> ]</h5>
+<!-- 右边开始 --><div class="col-sm-9 col-md-10 rightbox"><div id="mainbox"><h5 class="sub-header"><a href="producttype_list.php">商品栏目管理</a> > <a href="product_list.php">商品列表</a> | <a href="product_list.php?status=1">下架商品列表</a> [ <a href="product_add.php<?php if(!empty($_GET["id"])){echo '?catid='.$_GET["id"];}?>">发布商品</a> ]</h5>
 
 <div class="table-responsive">
 <table class="table table-striped table-hover">
@@ -53,6 +53,7 @@ if(!empty($posts))
 	  <th>ID</th>
 	  <th>选择</th>
 	  <th>商品标题</th>
+	  <th>上架</th>
 	  <th>更新时间</th>
 	  <th>类目</th><th>点击</th><th>操作</th>
 	</tr>
@@ -63,6 +64,7 @@ if(!empty($posts))
 	  <td><?php echo $row["id"]; ?></td>
 	  <td><input name="arcID" type="checkbox" value="<?php echo $row["id"]; ?>" class="np"></td>
 	  <td><a href="product_edit.php?id=<?php echo $row["id"]; ?>"><?php echo $row["title"]; ?></a> <?php if(!empty($row["litpic"])){echo "<small style='color:red'>[图]</small>";} ?> <?php if($row["tuijian"]==1){echo "<small style='color:green'>[荐]</small>";} ?></td>
+	  <td><?php if($row["status"]==0){echo '是';}else{echo '<font color="red">否</font>';} ?></td>
 	  <td><?php echo date('Y-m-d',$row["pubdate"]); ?></td>
 	  <td><a href="product_list.php?id=<?php echo $row["typeid"]; ?>"><?php echo $row["typename"]; ?></a></td><td><?php echo $row["click"]; ?></td><td><a target="_blank" href="<?php echo url(array("type"=>"productdetail","catid"=>$row["typeid"],"id"=>$row["id"])); ?>">预览</a>&nbsp;<a href="product_edit.php?id=<?php echo $row["id"]; ?>">修改</a>&nbsp;<a onclick="confirmbox('product_dodel.php?id=<?php echo $row["id"]; ?>','确定删除吗')" href="javascript:;">删除</a></td>
 	</tr>
