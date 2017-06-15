@@ -10,8 +10,8 @@ require_once 'db.inc.php';
 require_once 'common.inc.php'; //引入配置文件
 
 //定义常量
-define('CMS_ADMIN', CMS_BASEHOST.'/fladmin/');    // 后台模块，首字母最好大写
-define('CMS_PLUS', CMS_BASEHOST.'/other/');       // 插件目录
+define('CMS_ADMIN', '/fladmin/');    // 后台模块，首字母最好大写
+define('CMS_PLUS', '/other/');       // 插件目录
 define('CMS_VERSION', '1.1.0');                  // 插件目录
 
 //系统相关

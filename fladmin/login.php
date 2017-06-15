@@ -25,11 +25,11 @@ if(isset($_POST['dosubmit']) && $_POST['dosubmit']==1)
         
         $_SESSION['admin_user_info'] = $user;
         
-        success_jump("登录成功！",CMS_ADMIN);
+        redirect(CMS_ADMIN,1,"登录成功！");
     }
     else
     {
-        error_jump("登录失败！请重新登录！！",CMS_ADMIN."login.php");
+        redirect(CMS_ADMIN."login.php",3,"登录失败！请重新登录！！");
     }
 }
 ?>
