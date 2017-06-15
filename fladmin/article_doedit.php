@@ -26,7 +26,8 @@ else
     }
 }
 
-if(isset($_REQUEST["dellink"]) && $_REQUEST["dellink"]==1 && !empty($content)){$content=replacelinks($content,array(CMS_WEBSITE));} //删除非站内链接
+if(isset($_REQUEST["dellink"]) && $_REQUEST["dellink"]==1 && !empty($content)){$content=replacelinks($content,array(CMS_BASEHOST));} //删除非站内链接
+if(isset($_REQUEST["dellink"])){unset($_REQUEST["dellink"]);}
 $_REQUEST['body']=$content;
 
 $db =  new db();

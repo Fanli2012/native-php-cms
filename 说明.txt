@@ -8,8 +8,8 @@
 21232f297a57a5a743894a0e4a801fc3
 
 
-http://s66.demo.s-cms.cn/
-
+nginx需要增加伪静态规则
+.htaccess包含所需的伪静态规则
 
 
 

@@ -61,7 +61,7 @@ if(!empty($posts))
 	<tr>
 	  <td><?php echo $row["id"]; ?></td>
 	  <td><input name="arcID" type="checkbox" value="<?php echo $row["id"]; ?>" class="np"></td>
-	  <td><a href="article_edit.php?id=<?php echo $row["id"]; ?>"><?php echo $row["title"]; ?></a> <?php if(!empty($row["litpic"])){echo "<small style='color:red'>[图]</small>";} ?> </td>
+	  <td><a href="article_edit.php?id=<?php echo $row["id"]; ?>"><?php echo $row["title"]; ?></a> <?php if(!empty($row["litpic"])){echo "<small style='color:red'>[图]</small>";} ?> <?php if($row["tuijian"]==1){echo "<small style='color:green'>[荐]</small>";} ?></td>
 	  <td><?php echo date('Y-m-d',$row["pubdate"]); ?></td>
 	  <td><a href="article_list.php?id=<?php echo $row["typeid"]; ?>"><?php echo $row["typename"]; ?></a></td><td><?php echo $row["click"]; ?></td><td><a target="_blank" href="<?php echo url(array("type"=>"content","catid"=>$row["typeid"],"id"=>$row["id"])); ?>">预览</a>&nbsp;<a href="article_edit.php?id=<?php echo $row["id"]; ?>">修改</a>&nbsp;<a onclick="confirmbox('article_dodel.php?id=<?php echo $row["id"]; ?>','确定删除吗')" href="javascript:;">删除</a></td>
 	</tr>

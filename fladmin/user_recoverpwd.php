@@ -9,10 +9,10 @@ $db =  new db();
 $where['where']="id=1";
 if($db->update("user", $data, $where))
 {
-    success("login.php",1,"密码恢复成功！");
+    success_jump("密码恢复成功！","login.php");
 }
 else
 {
-    error("login.php",3,"密码恢复失败！");
+    error_jump("密码恢复失败！","login.php");
 }
 ?>

@@ -103,13 +103,6 @@ function upImage()
         <td><textarea name="description" rows="5" id="description" style="width:80%;height:70px;vertical-align:middle;"><?php echo $post["description"]; ?></textarea></td>
     </tr>
     <tr>
-        <td align="right">附加选项：</td>
-        <td>
-            <input name="dellink" type="checkbox" class="np" id="dellink" value="1">
-            删除非站内链接
-        </td>
-    </tr>
-    <tr>
         <td colspan="2"><strong>商品内容：</strong></td>
     </tr>
     <tr>

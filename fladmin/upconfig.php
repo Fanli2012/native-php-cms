@@ -19,5 +19,5 @@ $fp=fopen($sf,"w"); //写方式打开文件
 fwrite($fp,$str_tmp); //存入内容
 fclose($fp); //关闭文件
 
-redirect(CMS_ADMIN,1,"缓存更新成功！");
+success_jump("缓存更新成功！");
 ?>
