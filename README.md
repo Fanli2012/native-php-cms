@@ -2,12 +2,17 @@
 原生php建站cms，php原生开发，php原生代码
 
 # 安装
+
 1、导入数据库
-1)打开根目录下的flcms.sql文件，将http://www.flcms.com改成自己的站点根网址，格式：http://+域名
-2)导入数据库
+
+* 打开根目录下的flcms.sql文件，将 http://www.flcms.com 改成自己的站点根网址，格式：http://+域名
+
+* 导入数据库
+
 
 2、修改数据库连接参数
 打开根目录下的common/db.inc.php文件,修改相关配置
+
 
 3、登录后台：/fladmin/login.php，账号：admin888，密码：admin
 顶部按钮，更新缓存
