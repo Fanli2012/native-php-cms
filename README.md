@@ -1,6 +1,8 @@
 # native-php-cms
 原生php建站cms，php原生开发，php原生代码
 
+![alt text](/images/screenshots.png "网站截图")
+
 # 安装
 
 1、导入数据库
@@ -15,6 +17,7 @@
 
 
 3、登录后台：/fladmin/login.php，账号：admin888，密码：admin
+
 顶部按钮，更新缓存
 
 
@@ -26,4 +29,5 @@
 密码：admin
 
 恢复后台默认账号密码：/fladmin/user_recoverpwd.php
+
 21232f297a57a5a743894a0e4a801fc3
